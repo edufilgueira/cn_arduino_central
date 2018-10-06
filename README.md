@@ -53,7 +53,7 @@ Escreve o seguinte codigo no Makefile
 BOARD_TAG = mega2560 #uno para arduino uno
 ARDUINO_PORT = /dev/ttyACM0 #procurar qual a porta seria disponivel
 ARDUINO_LIBS = 
-ARDUINO_DIR = /usr/share/arduino/
+ARDUINO_DIR = /usr/share/arduino
 include ../Arduino.mk
 ```
 
