@@ -2,8 +2,8 @@
  * Projeto: Arduino com AJAX
  * Autor: Rogerio Alencar Filho
  * Data: 24/02/2014
- * Vers„o: v0.1
- * DescriÁ„o: O Arduino recebe uma requisiÁ„o HTTP e retorna um JSON que È tratado no HTML com Javascript para exibir na tela.
+ * Vers√£o: v0.1
+ * Descri√ß√£o: O Arduino recebe uma requisi√ß√£o HTTP e retorna um JSON que √© tratado no HTML com Javascript para exibir na tela.
  * Github: https://github.com/rogerin/ArduinoComAjax
  * Twitter: https://twitter.com/rogerin
  */
@@ -12,7 +12,7 @@
 //#include <SPI.h>
 #include <Ethernet.h>
 
-byte mac[] = {00, E0, 4C, 17, F9, 7D};
+byte mac[] = {0x90, 0xA2, 0xDA, 0x0D, 0x83, 0xEA};
 
 IPAddress ip(192,168,0,220);
 IPAddress gateway(192,168,0,1);
@@ -115,7 +115,7 @@ void loop()
         if(c == '\n' && continua)
         {
           client.println("HTTP/1.1 200 OK");
-          // IMPORTANTE, ISSO FAZ O ARDUINO RECEBER REQUISI«√O AJAX DE OUTRO SERVIDOR E N√O APENAS LOCAL.
+          // IMPORTANTE, ISSO FAZ O ARDUINO RECEBER REQUISI√á√ÉO AJAX DE OUTRO SERVIDOR E N√ÉO APENAS LOCAL.
           client.println("Content-Type: text/javascript");
           client.println("Access-Control-Allow-Origin: *");
           client.println();          
