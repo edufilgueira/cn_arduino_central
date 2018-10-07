@@ -20,7 +20,7 @@ IPAddress subnet(255,255,255,0);
 
 EthernetServer server(1000);
 
-const int analogPin1 = A1;
+const int analogPin1 = A0;
 
 int sensor1 = 0;
 
@@ -157,8 +157,8 @@ void loop()
             //else if ( acao == "09ON"){ digitalWrite(_pino9, LOW); }
             //else if ( acao == "09OF"){ digitalWrite(_pino9, HIGH); }
   
-            sensor1 = temperatura(analogRead(analogPin1));
-            //Serial.println(temperatura(analogRead(analogPin1)));            
+            //sensor1 = temperatura(analogRead(analogPin1));
+            Serial.println(temperatura(analogRead(analogPin1)));            
             client.print("dados({ temperatura : ");
             client.print(sensor1);
             client.print(", _pino0 : ");
@@ -194,7 +194,6 @@ void loop()
      client.stop();
   }
 
-
 }
 
 void executarAcao() 
@@ -218,25 +217,3 @@ int temperatura(byte pinLeituraDoSensor) {
   int temperatura = voltage * 100;
   return temperatura;
 }
-          
-          /*
-          
-          #####################
-          ## Debug na serial ##
-          #####################
-          
-          sensor1 = analogRead(analogPin1);
-          delay(10);
-          sensor2 = analogRead(analogPin2);
-          
-          Serial.println("dados({ \'sensor1\' : ");
-          delay(10);
-          Serial.println(sensor1);
-          delay(10);
-          Serial.println(" , \'sensor2\' :  ");
-          delay(10);
-          Serial.println(sensor2);
-          delay(10);
-          Serial.println(" }) "); 
-          delay(500);
-          */
