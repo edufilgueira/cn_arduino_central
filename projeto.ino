@@ -9,7 +9,7 @@
  */
 
 
-
+#include <SPI.h>
 #include <Ethernet.h>
 
 byte mac[] = {0x90, 0xA2, 0xDA, 0x0D, 0x83, 0xEA};
