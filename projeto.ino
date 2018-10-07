@@ -157,7 +157,7 @@ void loop()
             //else if ( acao == "09ON"){ digitalWrite(_pino9, LOW); }
             //else if ( acao == "09OF"){ digitalWrite(_pino9, HIGH); }
   
-            //sensor1 = temperatura(analogRead(analogPin1));
+            sensor1 = temperatura(analogRead(analogPin1));
             //Serial.println(temperatura(analogRead(analogPin1)));            
             client.print("dados({ temperatura : ");
             client.print(sensor1);
