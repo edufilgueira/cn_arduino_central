@@ -12,7 +12,7 @@
 #include <SPI.h>
 #include <Ethernet.h>
 
-byte mac[] = {0x07, 0x25, 0x4E, 0x2B, 0x20, 0xBD};
+byte mac[] = {07, 25, 4E, 2B, 20, BD};
 
 IPAddress ip(192,168,0,220);
 IPAddress gateway(192,168,0,1);
