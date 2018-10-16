@@ -32,6 +32,11 @@ long tempoEsperaEntrePalmas = 0;
 
 void executarAcao();
 
+int temperatura(byte pinLeituraDoSensor) {
+  float voltage = pinLeituraDoSensor * (5.0/1023);
+  int temperatura = voltage * 100;
+  return temperatura;
+}
 
 void setup()
 {
@@ -201,9 +206,3 @@ void executarAcao()
   }
 }
 
-
-int temperatura(byte pinLeituraDoSensor) {
-  float voltage = pinLeituraDoSensor * (5.0/1023);
-  int temperatura = voltage * 100;
-  return temperatura;
-}
