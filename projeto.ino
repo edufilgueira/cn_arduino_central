@@ -30,7 +30,7 @@ int contaPalmas = 0;
 long tempoEspera = 0;
 long tempoEsperaEntrePalmas = 0;
 
-void executarAcao();
+executarAcao();
 
 int temperatura(byte pinLeituraDoSensor) {
   float voltage = pinLeituraDoSensor * (5.0/1023);
