@@ -41,7 +41,7 @@ int contaPalmas = 0;
 long tempoEspera = 0;
 long tempoEsperaEntrePalmas = 0;
 
-void executarAcao();
+executarAcao();
 
 void setup()
 {
