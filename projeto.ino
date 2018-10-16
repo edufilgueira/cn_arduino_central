@@ -30,13 +30,8 @@ int contaPalmas = 0;
 long tempoEspera = 0;
 long tempoEsperaEntrePalmas = 0;
 
-executarAcao();
+void executarAcao();
 
-int temperatura(byte pinLeituraDoSensor) {
-  float voltage = pinLeituraDoSensor * (5.0/1023);
-  int temperatura = voltage * 100;
-  return temperatura;
-}
 
 void setup()
 {
@@ -193,7 +188,6 @@ void loop()
 
 void executarAcao() 
 {
-  
   switch (contaPalmas) {
     case 2: 
        digitalWrite(_pino8, !digitalRead(_pino8));
@@ -205,4 +199,11 @@ void executarAcao()
        digitalWrite(_pino6, !digitalRead(_pino6));
        break;
   }
+}
+
+
+int temperatura(byte pinLeituraDoSensor) {
+  float voltage = pinLeituraDoSensor * (5.0/1023);
+  int temperatura = voltage * 100;
+  return temperatura;
 }
