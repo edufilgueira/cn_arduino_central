@@ -1,4 +1,15 @@
-#include <SPI.h>
+/*
+ * Projeto: Arduino com AJAX
+ * Autor: Rogerio Alencar Filho
+ * Data: 24/02/2014
+ * Versão: v0.1
+ * Descrição: O Arduino recebe uma requisição HTTP e retorna um JSON que é tratado no HTML com Javascript para exibir na tela.
+ * Github: https://github.com/rogerin/ArduinoComAjax
+ * Twitter: https://twitter.com/rogerin
+ */
+
+
+//#include <SPI.h>
 #include <Ethernet.h>
 
 byte mac[] = {0x90, 0xA2, 0xDA, 0x0D, 0x83, 0xEA};
@@ -10,7 +21,7 @@ byte subnet[] = { 255, 255, 255, 0 }; //Entre com a Máskara de Subrede
 EthernetServer server(80); //Inicializa a biblioteca EthernetServer com os valores de IP acima citados e configura a porta de acesso(80)
 */
 
-IPAddress ip(192,168,0,20);
+IPAddress ip(192,168,0,220);
 IPAddress gateway(192,168,0,1);
 IPAddress subnet(255,255,255,0);
 
@@ -214,3 +225,25 @@ int temperatura(byte pinLeituraDoSensor) {
   int temperatura = voltage * 100;
   return temperatura;
 }
+          
+          /*
+          
+          #####################
+          ## Debug na serial ##
+          #####################
+          
+          sensor1 = analogRead(analogPin1);
+          delay(10);
+          sensor2 = analogRead(analogPin2);
+          
+          Serial.println("dados({ \'sensor1\' : ");
+          delay(10);
+          Serial.println(sensor1);
+          delay(10);
+          Serial.println(" , \'sensor2\' :  ");
+          delay(10);
+          Serial.println(sensor2);
+          delay(10);
+          Serial.println(" }) "); 
+          delay(500);
+          */
