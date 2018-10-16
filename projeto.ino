@@ -3,13 +3,20 @@
 
 byte mac[] = {0x90, 0xA2, 0xDA, 0x0D, 0x83, 0xEA};
 
-IPAddress ip(192,168,0,220);
+/*
+IPAddress ip(192,168,0,20); // Configure um IP válido 
+byte gateway[] = { 192 , 168, 0, 20 }; //Entre com o IP do Computador onde a Câmera esta instalada
+byte subnet[] = { 255, 255, 255, 0 }; //Entre com a Máskara de Subrede
+EthernetServer server(80); //Inicializa a biblioteca EthernetServer com os valores de IP acima citados e configura a porta de acesso(80)
+*/
+
+IPAddress ip(192,168,0,20);
 IPAddress gateway(192,168,0,1);
 IPAddress subnet(255,255,255,0);
 
 EthernetServer server(1000);
 
-const int analogPin1 = A0;
+const int analogPin1 = A1;
 
 int sensor1 = 0;
 
@@ -31,8 +38,6 @@ long tempoEspera = 0;
 long tempoEsperaEntrePalmas = 0;
 
 void executarAcao();
-
-
 
 void setup()
 {
@@ -184,6 +189,7 @@ void loop()
      delay(1);
      client.stop();
   }
+
 
 }
 
