@@ -1,19 +1,8 @@
-/*
- * Projeto: Arduino com AJAX
- * Autor: Rogerio Alencar Filho
- * Data: 24/02/2014
- * Versão: v0.1
- * Descrição: O Arduino recebe uma requisição HTTP e retorna um JSON que é tratado no HTML com Javascript para exibir na tela.
- * Github: https://github.com/rogerin/ArduinoComAjax
- * Twitter: https://twitter.com/rogerin
- */
-
-
 #include <SPI.h>
 #include <Ethernet.h>
 
-
 byte mac[] = {0x90, 0xA2, 0xDA, 0x0D, 0x83, 0xEA};
+
 IPAddress ip(192,168,0,220);
 IPAddress gateway(192,168,0,1);
 IPAddress subnet(255,255,255,0);
@@ -41,7 +30,13 @@ int contaPalmas = 0;
 long tempoEspera = 0;
 long tempoEsperaEntrePalmas = 0;
 
-executarAcao();
+void executarAcao();
+
+int temperatura(byte pinLeituraDoSensor) {
+  float voltage = pinLeituraDoSensor * (5.0/1023);
+  int temperatura = voltage * 100;
+  return temperatura;
+}
 
 void setup()
 {
@@ -210,12 +205,4 @@ void executarAcao()
        digitalWrite(_pino6, !digitalRead(_pino6));
        break;
   }
-  
-  int temperatura(byte pinLeituraDoSensor) {
-  float voltage = pinLeituraDoSensor * (5.0/1023);
-  int temperatura = voltage * 100;
-  return temperatura;
 }
-}
-
-
