@@ -1,25 +1,7 @@
-/*
- * Projeto: Arduino com AJAX
- * Autor: Rogerio Alencar Filho
- * Data: 24/02/2014
- * Versão: v0.1
- * Descrição: O Arduino recebe uma requisição HTTP e retorna um JSON que é tratado no HTML com Javascript para exibir na tela.
- * Github: https://github.com/rogerin/ArduinoComAjax
- * Twitter: https://twitter.com/rogerin
- */
-
-
 #include <SPI.h>
 #include <Ethernet.h>
 
 byte mac[] = {0x90, 0xA2, 0xDA, 0x0D, 0x83, 0xEA};
-
-/*
-IPAddress ip(192,168,0,20); // Configure um IP válido 
-byte gateway[] = { 192 , 168, 0, 20 }; //Entre com o IP do Computador onde a Câmera esta instalada
-byte subnet[] = { 255, 255, 255, 0 }; //Entre com a Máskara de Subrede
-EthernetServer server(80); //Inicializa a biblioteca EthernetServer com os valores de IP acima citados e configura a porta de acesso(80)
-*/
 
 IPAddress ip(192,168,0,220);
 IPAddress gateway(192,168,0,1);
@@ -27,7 +9,7 @@ IPAddress subnet(255,255,255,0);
 
 EthernetServer server(1000);
 
-const int analogPin1 = A1;
+const int analogPin1 = A0;
 
 int sensor1 = 0;
 
@@ -49,6 +31,12 @@ long tempoEspera = 0;
 long tempoEsperaEntrePalmas = 0;
 
 void executarAcao();
+
+int temperatura(byte pinLeituraDoSensor) {
+  float voltage = pinLeituraDoSensor * (5.0/1023);
+  int temperatura = voltage * 100;
+  return temperatura;
+}
 
 void setup()
 {
@@ -201,7 +189,6 @@ void loop()
      client.stop();
   }
 
-
 }
 
 void executarAcao() 
@@ -219,31 +206,3 @@ void executarAcao()
        break;
   }
 }
-
-int temperatura(byte pinLeituraDoSensor) {
-  float voltage = pinLeituraDoSensor * (5.0/1023);
-  int temperatura = voltage * 100;
-  return temperatura;
-}
-          
-          /*
-          
-          #####################
-          ## Debug na serial ##
-          #####################
-          
-          sensor1 = analogRead(analogPin1);
-          delay(10);
-          sensor2 = analogRead(analogPin2);
-          
-          Serial.println("dados({ \'sensor1\' : ");
-          delay(10);
-          Serial.println(sensor1);
-          delay(10);
-          Serial.println(" , \'sensor2\' :  ");
-          delay(10);
-          Serial.println(sensor2);
-          delay(10);
-          Serial.println(" }) "); 
-          delay(500);
-          */
