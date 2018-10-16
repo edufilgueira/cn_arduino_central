@@ -12,7 +12,7 @@
 #include <SPI.h>
 #include <Ethernet.h>
 
-byte mac[] = {0x07, 0x25, 0x4E, 0x2B, 0x20, 0xBD};
+
 
 IPAddress ip(192,168,0,220);
 IPAddress gateway(192,168,0,1);
@@ -53,7 +53,7 @@ void setup()
 {
   //Serial.begin(9600);
   //Serial.println("Iniciando programa..");
-  Ethernet.begin(mac,ip,gateway,subnet);
+  Ethernet.begin(ip,gateway,subnet);
   //Serial.println("Server ativo no IP: ");
   //Serial.print(Ethernet.localIP());
   server.begin();
