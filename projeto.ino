@@ -7,7 +7,7 @@ IPAddress ip(192,168,2,220);
 IPAddress gateway(192,168,0,1);
 IPAddress subnet(255,255,255,0);
 
-EthernetServer server(1000);
+EthernetServer server(1001);
 
 const int analogPin1 = A0;
 
