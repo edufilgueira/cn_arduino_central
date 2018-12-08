@@ -3,8 +3,8 @@
 
 byte mac[] = {0x90, 0xA2, 0xDA, 0x0D, 0x83, 0xEA};
 
-IPAddress ip(192,168,2,220);
-IPAddress gateway(192,168,0,1);
+IPAddress ip(192,168,2,221);
+IPAddress gateway(192,168,2,1);
 IPAddress subnet(255,255,255,0);
 
 EthernetServer server(1001);
