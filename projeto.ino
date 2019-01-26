@@ -1,5 +1,6 @@
 //#include <SPI.h>
 #include <Ethernet.h>
+#include <avr/wdt.h>
 
 byte mac[] = {0x90, 0xA2, 0xDA, 0x0D, 0x83, 0xEA};
 
@@ -69,12 +70,13 @@ void setup()
   digitalWrite(_pino7, HIGH);
   digitalWrite(_pino8, HIGH);
   digitalWrite(pinSom, HIGH);
+  wdt_enable(WDTO_4S);
 }
 
 void loop()
 {
   //verifica o estado do sensor de som (ele fica normalmente com a porta ligada. Quando ouver uma palma, ele desliga momentaneamente a porta)
-  int sensorSom = digitalRead(pinSom);
+  /*int sensorSom = digitalRead(pinSom);
 
   //se o sensor detectou palmas
   if (sensorSom == LOW) {
@@ -93,7 +95,7 @@ void loop()
      executarAcao();
      contaPalmas = 0;
      tempoEsperaEntrePalmas = millis();
-  }
+  }*/
 
   EthernetClient client = server.available();
   if(client)
@@ -188,7 +190,8 @@ void loop()
      delay(1);
      client.stop();
   }
-
+  //Reseta o watchdog,  ou seja se o programa travar
+  wdt_reset();  
 }
 
 void executarAcao() 
