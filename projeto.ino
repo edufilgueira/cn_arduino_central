@@ -5,7 +5,7 @@
 byte mac[] = {0x90, 0xA2, 0xDA, 0x0D, 0x83, 0xEA};
 
 IPAddress ip(192,168,2,220);
-IPAddress gateway(192,168,1,1);
+IPAddress gateway(192,168,2,1);
 IPAddress subnet(255,255,255,0);
 
 EthernetServer server(1001);
@@ -187,7 +187,7 @@ void loop()
         else if (c != '\r') { continua = false; }
       }
     }
-     delay(1);
+     delay(10);
      client.stop();
   }
   //Reseta o watchdog,  ou seja se o programa travar
