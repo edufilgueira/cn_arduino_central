@@ -187,9 +187,10 @@ void loop()
         else if (c != '\r') { continua = false; }
       }
     }
-     delay(10);
+     delay(1);
      client.stop();
   }
+  delay(100);
   //Reseta o watchdog,  ou seja se o programa travar
   wdt_reset();  
 }
